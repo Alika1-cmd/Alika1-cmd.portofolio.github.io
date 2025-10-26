@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Student Attendance - Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Student Attendance</h1>
+      <p class="subtitle">Web prototype — simple form that records to Google Sheets</p>
+    </header>
+
+    <form id="attendanceForm" class="card">
+      <label>
+        Name
+        <input type="text" id="name" name="name" required />
+      </label>
+
+      <label>
+        Student ID
+        <input type="text" id="studentId" name="studentId" required />
+      </label>
+
+      <label>
+        Class
+        <input type="text" id="className" name="className" required placeholder="e.g. TRK A" />
+      </label>
+
+      <label>
+        Subject
+        <input type="text" id="subject" name="subject" required placeholder="e.g. Computer Networks" />
+      </label>
+
+      <label>
+        Status
+        <select id="status" name="status" required>
+          <option value="Present">Present</option>
+          <option value="Absent">Absent</option>
+          <option value="Late">Late</option>
+        </select>
+      </label>
+
+      <div class="row">
+        <button type="submit" class="btn">Submit Attendance</button>
+        <button type="button" id="clearBtn" class="btn secondary">Clear</button>
+      </div>
+
+      <p id="message" class="message" aria-live="polite"></p>
+    </form>
+
+    <section class="card info">
+      <h2>How it works</h2>
+      <ol>
+        <li>Student fills the form and clicks Submit.</li>
+        <li>Form posts to a Google Apps Script URL linked to a Google Sheet.</li>
+        <li>Sheet stores each record with a timestamp and can show charts.</li>
+      </ol>
+      <p class="muted">Note: Replace <em>APPS_SCRIPT_URL</em> in script.js with your deployed Apps Script URL.</p>
+    </section>
+
+    <footer class="muted">Prototype · Minimal design · For portfolio</footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
